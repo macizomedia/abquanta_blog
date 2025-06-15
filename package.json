@@ -1,0 +1,29 @@
+{
+  "name": "abquanta_blog",
+  "version": "1.0.0",
+  "description": "Welcome to the **abquanta Blog** — the official blog of the abquanta initiative, a coding lab dedicated to making technology accessible, understandable, and beneficial for everyone.",
+  "main": "index.js",
+  "scripts": {
+  "build": "tsc",
+  "start": "node dist/index.js"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macizomedia/abquanta_blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/macizomedia/abquanta_blog/issues"
+  },
+  "homepage": "https://github.com/macizomedia/abquanta_blog#readme",
+  "dependencies": {
+    "marked": "^15.0.12"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.1",
+    "typescript": "^5.8.3"
+  }
+}
