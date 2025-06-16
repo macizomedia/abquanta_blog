@@ -7,6 +7,6 @@ echo "🔧 Building site..."
 npm run build
 
 echo "🚀 Syncing to S3..."
-aws s3 sync dist/ s3://your-bucket-name --delete --acl public-read
+aws s3 sync dist/ s3://news.abquanta.com/ --delete
 
 echo "✅ Deployment complete."

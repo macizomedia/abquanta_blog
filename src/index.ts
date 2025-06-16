@@ -72,7 +72,7 @@ const indexHtml = `
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Blog</title>
+  <title>Latest Articles</title>
   <style>
     body { font-family: sans-serif; padding: 2rem; max-width: 800px; margin: auto; }
     input { width: 100%; padding: 0.5rem; margin-bottom: 1rem; }
@@ -80,7 +80,7 @@ const indexHtml = `
   </style>
 </head>
 <body>
-  <h1>My Blog</h1>
+  <h1>Latest Articles</h1>
   <input type="text" id="search" placeholder="Search posts..." />
   <ul id="post-list">
     ${listHtml}
