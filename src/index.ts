@@ -44,10 +44,34 @@ files.forEach(file => {
 <head>
   <meta charset="UTF-8" />
   <title>${title}</title>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
+  <button id="theme-toggle" style="float:right; margin:0 0 1rem 1rem; font-family:var(--font-code); background:var(--color-bg-alt); color:var(--color-fg); border:1px solid var(--color-accent); border-radius:4px; padding:0.3rem 0.8rem; cursor:pointer;">🌙 Dark Mode</button>
   <a href="../index.html">← Back to Home</a>
   ${htmlContent}
+  <script>
+    // Dark mode toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    function setTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      themeBtn.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+    // Initial theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else if (prefersDark) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+    themeBtn.addEventListener('click', () => {
+      setTheme(document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
 </body>
 </html>
   `.trim();
@@ -87,6 +111,7 @@ const indexHtml = `
   </ul>
 
   <script>
+    // Search filter
     const input = document.getElementById('search');
     const list = document.getElementById('post-list');
     input.addEventListener('input', () => {
@@ -94,6 +119,27 @@ const indexHtml = `
       [...list.children].forEach(li => {
         li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none';
       });
+    });
+
+    // Dark mode toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    function setTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      themeBtn.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+    // Initial theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else if (prefersDark) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+    themeBtn.addEventListener('click', () => {
+      setTheme(document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     });
   </script>
 </body>
@@ -109,11 +155,35 @@ const errorHtml = `
 <head>
   <meta charset="UTF-8">
   <title>Page Not Found</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <button id="theme-toggle" style="float:right; margin:0 0 1rem 1rem; font-family:var(--font-code); background:var(--color-bg-alt); color:var(--color-fg); border:1px solid var(--color-accent); border-radius:4px; padding:0.3rem 0.8rem; cursor:pointer;">🌙 Dark Mode</button>
   <h1>404 - Page Not Found</h1>
   <p>Sorry, we couldn't find that page.</p>
   <a href="index.html">← Back to Home</a>
+  <script>
+    // Dark mode toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    function setTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      themeBtn.textContent = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+    // Initial theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else if (prefersDark) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+    themeBtn.addEventListener('click', () => {
+      setTheme(document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
 </body>
 </html>
 `.trim();
